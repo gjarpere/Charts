@@ -483,7 +483,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
         
         if (h == nil)
         {
-            _indicesToHighlight.removeAll(keepCapacity: false)
+           // _indicesToHighlight.removeAll(keepCapacity: false)
         }
         else
         {
@@ -492,7 +492,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
             if (entry == nil)
             {
                 h = nil
-                _indicesToHighlight.removeAll(keepCapacity: false)
+                //_indicesToHighlight.removeAll(keepCapacity: false)
             }
             else
             {
