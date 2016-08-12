@@ -32,8 +32,14 @@ public class LineScatterCandleRadarChartRenderer: ChartDataRendererBase
         // draw vertical highlight lines
         if set.isVerticalHighlightIndicatorEnabled
         {
+            let center = CGPointMake(point.x, viewPortHandler.contentTop + 4.5)
+            let radius = 4 as CGFloat
+            let startAngle = -(CGFloat(M_PI) / 2) as CGFloat
+            let endAngle = (2 * CGFloat(M_PI)) + startAngle as CGFloat
+            CGContextAddArc(context, center.x, center.y, radius, startAngle, endAngle, 0)
+            CGContextStrokePath(context);
             CGContextBeginPath(context)
-            CGContextMoveToPoint(context, point.x, viewPortHandler.contentTop)
+            CGContextMoveToPoint(context, point.x, viewPortHandler.contentTop + 9)
             CGContextAddLineToPoint(context, point.x, viewPortHandler.contentBottom)
             CGContextStrokePath(context)
         }
