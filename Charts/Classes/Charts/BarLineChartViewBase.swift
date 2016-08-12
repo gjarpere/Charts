@@ -324,7 +324,10 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
         }
         
         // calculate / set x-axis range
-        _xAxis._axisMaximum = Double((_data?.xVals.count ?? 0) - 1)
+        if !_xAxis._customAxisMax
+        {
+            _xAxis._axisMaximum = Double((_data?.xVals.count ?? 0) - 1)
+        }
         _xAxis.axisRange = .abs(_xAxis._axisMaximum - _xAxis._axisMinimum);
         
         // calculate axis range (min / max) according to provided data
