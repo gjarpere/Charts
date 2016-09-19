@@ -270,7 +270,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
         // check if a custom formatter is set or not
         var reference = Double(0.0)
         
-        if let data = _data where data.xValCount >= 2
+        if let data = _data   where data.xValCount >= 2
         {
             reference = fabs(max - min)
         }
@@ -768,7 +768,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     /// - returns: the x-value at the given index
     public func getXValue(index: Int) -> String!
     {
-        guard let data = _data where data.xValCount > index else
+        guard let data = _data  where data.xValCount > index else
         {
             return nil
         }
@@ -814,13 +814,13 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
         if (opaque || !transparent)
         {
             // Background color may be partially transparent, we must fill with white if we want to output an opaque image
-            CGContextSetFillColorWithColor(context, NSUIColor.whiteColor().CGColor)
-            CGContextFillRect(context, rect)
+            CGContextSetFillColorWithColor(context!, NSUIColor.whiteColor().CGColor)
+            CGContextFillRect(context!, rect)
             
             if (self.backgroundColor !== nil)
             {
-                CGContextSetFillColorWithColor(context, self.backgroundColor?.CGColor)
-                CGContextFillRect(context, rect)
+                CGContextSetFillColorWithColor(context!, (self.backgroundColor?.CGColor)!)
+                CGContextFillRect(context!, rect)
             }
         }
         
